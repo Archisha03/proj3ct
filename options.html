@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Buddy Options</title>
+  <link rel="stylesheet" href="options.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Student Buddy Settings</h1>
+
+    <section>
+      <h2>Quick Links</h2>
+      <form id="link-form">
+        <input id="link-title" type="text" placeholder="Title" />
+        <input id="link-url" type="url" placeholder="https://example.com" />
+        <button type="submit">Add</button>
+      </form>
+      <ul id="links"></ul>
+    </section>
+
+    <section>
+      <h2>Blocked Sites</h2>
+      <p>Patterns match hostname contains text, e.g. "twitter.com"</p>
+      <form id="block-form">
+        <input id="block-pattern" type="text" placeholder="twitter.com" />
+        <button type="submit">Block</button>
+      </form>
+      <ul id="blocked"></ul>
+    </section>
+  </div>
+
+  <script src="shared.js"></script>
+  <script src="storage.js"></script>
+  <script src="options.js"></script>
+  
+</body>
+</html>

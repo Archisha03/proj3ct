@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Buddy</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>Student Buddy</h1>
+      <nav class="tabs" role="tablist" aria-label="Student Buddy Tabs">
+        <button class="tab active" data-tab="tasks" aria-selected="true">Tasks</button>
+        <button class="tab" data-tab="pomodoro" aria-selected="false">Pomodoro</button>
+        <button class="tab" data-tab="gpa" aria-selected="false">GPA</button>
+        <button class="tab" data-tab="links" aria-selected="false">Links</button>
+      </nav>
+    </header>
+
+    <main class="views">
+      <section id="view-tasks" class="view active" aria-labelledby="Tasks">
+        <form id="task-form" autocomplete="off">
+          <input id="task-input" type="text" placeholder="Add a task..." />
+          <button type="submit">Add</button>
+        </form>
+        <ul id="task-list"></ul>
+        <div class="task-actions">
+          <button id="clear-completed">Clear Completed</button>
+        </div>
+      </section>
+
+      <section id="view-pomodoro" class="view" aria-labelledby="Pomodoro">
+        <div class="timer-display">
+          <span id="timer-label">Focus</span>
+          <div id="timer-time">25:00</div>
+        </div>
+        <div class="timer-controls">
+          <button id="timer-start">Start</button>
+          <button id="timer-pause">Pause</button>
+          <button id="timer-reset">Reset</button>
+        </div>
+        <div class="durations">
+          <label>Focus (min): <input id="focus-min" type="number" min="1" max="180" value="25" /></label>
+          <label>Break (min): <input id="break-min" type="number" min="1" max="60" value="5" /></label>
+          <label><input id="auto-cycle" type="checkbox" /> Auto cycle</label>
+        </div>
+      </section>
+
+      <section id="view-gpa" class="view" aria-labelledby="GPA">
+        <table id="gpa-table">
+          <thead>
+            <tr><th>Course</th><th>Credits</th><th>Grade</th><th></th></tr>
+          </thead>
+          <tbody id="gpa-rows"></tbody>
+        </table>
+        <div class="gpa-actions">
+          <button id="gpa-add-row">Add Row</button>
+          <button id="gpa-clear">Clear</button>
+        </div>
+        <div class="gpa-result">
+          GPA: <span id="gpa-value">0.00</span>
+        </div>
+      </section>
+
+      <section id="view-links" class="view" aria-labelledby="Links">
+        <ul id="links-list"></ul>
+        <div class="links-actions">
+          <a href="options.html" target="_blank">Manage links</a>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="popup.js"></script>
+  <script src="shared.js"></script>
+  <script src="storage.js"></script>
+  <script src="features/tasks.js"></script>
+  <script src="features/pomodoro.js"></script>
+  <script src="features/gpa.js"></script>
+  <script src="features/links.js"></script>
+  <script src="tabs.js"></script>
+  
+</body>
+</html>
