@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "Student Buddy",
+  "description": "Study toolkit: To-Do, Pomodoro, GPA calculator, quick links, and site blocker.",
+  "version": "0.1.0",
+  "action": {
+    "default_title": "Student Buddy",
+    "default_popup": "popup.html"
+  },
+  "options_page": "options.html",
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": [
+    "storage",
+    "alarms",
+    "notifications"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ]
+}
